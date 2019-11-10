@@ -1,0 +1,109 @@
+<h2>Add New Character</h2>
+
+<form [formGroup]="addCharacterForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="name">Name</label>
+      <input
+        class="form-control"
+        type="text"
+        formControlName="name"
+        id="name"
+        [ngClass]="{
+          'is-invalid': (submitted && f.name.errors) || f.name.touched
+        }"
+      />
+      <div
+        *ngIf="(submitted && f.name.errors) || f.name.touched"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f.name.errors.required">This field is required</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="species">Species</label>
+      <select
+        class="form-control"
+        formControlName="species"
+        [ngClass]="{
+          'is-invalid': (submitted && f.name.errors) || f.name.touched
+        }"
+      >
+        <option *ngFor="let specie of species" value="{{ specie }}">{{
+          specie
+        }}</option>
+      </select>
+      <div
+        *ngIf="(submitted && f.species.errors) || f.species.touched"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f.species.errors.required">This field is required</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Gender</h3>
+
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="male">Male</label>
+      <input
+        class="form-control"
+        type="radio"
+        formControlName="gender"
+        id="male"
+        value="male"
+        [ngClass]="{
+          'is-invalid': (submitted && f.gender.errors) || f.gender.touched
+        }"
+      />
+      <div
+        *ngIf="(submitted && f.gender.errors) || f.gender.touched"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f.gender.errors.required">This field is required</div>
+      </div>
+    </div>
+    <div class="form-group col">
+      <label for="female">Female</label>
+      <input
+        class="form-control"
+        type="radio"
+        formControlName="gender"
+        id="female"
+        value="female"
+      />
+    </div>
+    <div class="form-group col">
+      <label for="n/a">n/a</label>
+      <input
+        class="form-control"
+        type="radio"
+        formControlName="gender"
+        id="n/a"
+        value="n/a"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="homeworld">Homeworld</label>
+      <input
+        class="form-control"
+        type="text"
+        formControlName="homeworld"
+        id="homeworld"
+      />
+    </div>
+  </div>
+
+  <div class="text-center">
+    <!-- <sl-button [text]="'Add Character'" type="add"></sl-button>
+    <sl-button (click)="onReset()" [text]="'Reset'" type="remove"></sl-button> -->
+    <button (click)="onSubmit()" class="btn-primary">Add</button>
+  </div>
+</form>

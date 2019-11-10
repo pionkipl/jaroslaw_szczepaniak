@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListViewComponent } from './list-view.component';
+import { AddCharacterComponent } from './add-character.component';
 
-describe('ListViewComponent', () => {
-  let component: ListViewComponent;
-  let fixture: ComponentFixture<ListViewComponent>;
+describe('AddCharacterComponent', () => {
+  let component: AddCharacterComponent;
+  let fixture: ComponentFixture<AddCharacterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ListViewComponent]
+      declarations: [AddCharacterComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListViewComponent);
+    fixture = TestBed.createComponent(AddCharacterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

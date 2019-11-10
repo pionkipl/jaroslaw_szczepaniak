@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListViewComponent } from './list-view.component';
+import { ButtonSmallComponent } from './button-small.component';
 
-describe('ListViewComponent', () => {
-  let component: ListViewComponent;
-  let fixture: ComponentFixture<ListViewComponent>;
+describe('ButtonSmallComponent', () => {
+  let component: ButtonSmallComponent;
+  let fixture: ComponentFixture<ButtonSmallComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ListViewComponent]
+      declarations: [ButtonSmallComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListViewComponent);
+    fixture = TestBed.createComponent(ButtonSmallComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

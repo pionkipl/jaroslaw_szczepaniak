@@ -1,0 +1,9 @@
+<button
+  class="btn mb-3"
+  [ngClass]="{
+    'btn-primary': type === buttonType.primary,
+    'btn-danger': type === buttonType.danger
+  }"
+>
+  {{ text }}
+</button>

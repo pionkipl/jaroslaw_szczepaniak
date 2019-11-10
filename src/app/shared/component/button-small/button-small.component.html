@@ -1,0 +1,20 @@
+<button
+  type="button"
+  (click)="buttonClicked()"
+  class="btn"
+  [ngClass]="{
+    'btn-secondary': type === 'edit',
+    'btn-danger': type === 'remove'
+  }"
+>
+  <i
+    class="fa"
+    [ngClass]="{
+      'fa-pencil': type === 'edit',
+      'fa-trash-o': type === 'remove'
+    }"
+    aria-hidden="true"
+  >
+  </i>
+  {{ text }}
+</button>
