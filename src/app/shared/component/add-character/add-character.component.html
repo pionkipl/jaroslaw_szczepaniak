@@ -1,6 +1,10 @@
 <h2>Add New Character</h2>
 
-<form [formGroup]="addCharacterForm" (ngSubmit)="onSubmit()">
+<form
+  focusFirstInvalidField
+  [formGroup]="addCharacterForm"
+  (ngSubmit)="onSubmit()"
+>
   <div class="form-row">
     <div class="form-group col">
       <label for="name"
@@ -135,6 +139,6 @@
   <div class="text-center">
     <!-- <sl-button [text]="'Add Character'" type="add"></sl-button>
     <sl-button (click)="onReset()" [text]="'Reset'" type="remove"></sl-button> -->
-    <button (click)="onSubmit()" class="btn-primary">Add</button>
+    <button (click)="onSubmit()" class="btn btn-primary">Add</button>
   </div>
 </form>

@@ -1,7 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { CharacterModel } from 'src/app/character/model/character-model.interface';
+import { CharacterService } from '../../service/character.service';
+
+import { CharacterModel } from '../../model/character-model.interface';
+
 import { ButtonAction } from 'src/app/shared/enum/button-action.enum';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'sl-table-view',
@@ -10,11 +14,27 @@ import { ButtonAction } from 'src/app/shared/enum/button-action.enum';
 })
 export class TableViewComponent implements OnInit {
   @Input()
-  characters: Array<CharacterModel>;
+  characters: Array<CharacterModel> = [];
 
   buttonAction = ButtonAction;
 
-  constructor() {}
+  constructor(private characterService: CharacterService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getCharacters();
+  }
+
+  getCharacters() {
+    return this.characterService.getCharacters().subscribe(characters => {
+      this.characters = characters;
+    });
+  }
+
+  deleteCharacter(id) {
+    if (window.confirm('Are you sure, you want do telete this character?')) {
+      this.characterService.deleteCharacter(id).subscribe(() => {
+        this.getCharacters();
+      });
+    }
+  }
 }

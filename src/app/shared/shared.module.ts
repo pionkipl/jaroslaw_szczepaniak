@@ -10,6 +10,8 @@ import { TableViewComponent } from '../character/component/table-view/table-view
 import { AddCharacterComponent } from './component/add-character/add-character.component';
 import { PaginationComponent } from './component/pagination/pagination.component';
 
+import { FirstInvalidFieldDirecvite } from './directives/first-invalid-field.directive';
+
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -18,7 +20,8 @@ import { PaginationComponent } from './component/pagination/pagination.component
     SearchComponent,
     TableViewComponent,
     AddCharacterComponent,
-    PaginationComponent
+    PaginationComponent,
+    FirstInvalidFieldDirecvite
   ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [
@@ -28,7 +31,8 @@ import { PaginationComponent } from './component/pagination/pagination.component
     SearchComponent,
     TableViewComponent,
     AddCharacterComponent,
-    PaginationComponent
+    PaginationComponent,
+    FirstInvalidFieldDirecvite
   ]
 })
 export class SharedModule {}

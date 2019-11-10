@@ -7,11 +7,11 @@ import { AddCharacterComponent } from './shared/component/add-character/add-char
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'listview',
+    redirectTo: 'characterlist',
     pathMatch: 'full'
   },
   {
-    path: 'listview',
+    path: 'characterlist',
     component: ListViewComponent
   },
   {
