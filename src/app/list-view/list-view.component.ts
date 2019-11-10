@@ -1,9 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CharacterService } from '../character/service/character.service';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+
+import { BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+
 import { CharacterModel } from '../character/model/character-model.interface';
-import { Router } from '@angular/router';
+
+import { CharacterService } from '../character/service/character.service';
+
 import { ButtonType } from '../shared/enum/button-type.enum';
 
 @Component({
@@ -14,12 +17,10 @@ import { ButtonType } from '../shared/enum/button-type.enum';
 export class ListViewComponent implements OnInit {
   characterData: Array<CharacterModel>;
   buttonType = ButtonType;
+
   private queryForNewData: BehaviorSubject<string>;
 
-  constructor(
-    public characterService: CharacterService,
-    private router: Router
-  ) {}
+  constructor(public characterService: CharacterService) {}
 
   ngOnInit() {
     this.initProperties();
@@ -42,9 +43,5 @@ export class ListViewComponent implements OnInit {
 
   performSearch(searchQuery: string) {
     this.queryForNewData.next(searchQuery);
-  }
-
-  perform() {
-    console.log('Click');
   }
 }
