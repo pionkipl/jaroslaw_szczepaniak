@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+import { Router } from '@angular/router';
 import { CharacterService } from 'src/app/character/service/character.service';
-import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'sl-add-character',
@@ -14,9 +19,17 @@ export class AddCharacterComponent implements OnInit {
 
   species;
 
+  characterDetails = {
+    name: '',
+    species: '',
+    gender: '',
+    homeworld: ''
+  };
+
   constructor(
     private fb: FormBuilder,
-    private characterService: CharacterService
+    private characterService: CharacterService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -24,7 +37,8 @@ export class AddCharacterComponent implements OnInit {
       name: ['', Validators.required],
       species: ['', Validators.required],
       gender: ['', Validators.required],
-      homeworld: ['']
+      homeworld: [''],
+      asterix: [null, Validators.required]
     });
 
     this.characterService.getSpecies().subscribe(speciesData => {
@@ -32,8 +46,18 @@ export class AddCharacterComponent implements OnInit {
     });
   }
 
-  get f() {
+  get getFormControl() {
     return this.addCharacterForm.controls;
+  }
+
+  checkIsControlRequired(controlName: string) {
+    const formField = this.addCharacterForm.get(controlName);
+    if (!formField.validator) {
+      return false;
+    }
+
+    const validator = formField.validator({} as AbstractControl);
+    return validator && validator.required;
   }
 
   onSubmit() {
@@ -43,10 +67,29 @@ export class AddCharacterComponent implements OnInit {
     if (this.addCharacterForm.invalid) {
       return;
     }
+
+    this.characterDetails = {
+      name: this.getFormControl.name.value,
+      species: this.getFormControl.species.value,
+      gender: this.getFormControl.gender.value,
+      homeworld: this.getFormControl.homeworld.value
+    };
+
+    this.addCharacter();
+    this.addCharacterForm.reset();
   }
 
   onReset() {
     this.submitted = false;
     this.addCharacterForm.reset();
+  }
+
+  addCharacter() {
+    this.characterService
+      .createCharacter(this.characterDetails)
+      .subscribe(data => {
+        console.log(data);
+        this.router.navigate(['/listview']);
+      });
   }
 }
