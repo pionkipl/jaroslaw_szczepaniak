@@ -41,7 +41,7 @@ export class AddCharacterComponent implements OnInit {
       .pipe(
         map(data => data.get('id')),
         filter(id => !!id),
-        map(id => Number.parseInt(id)),
+        map(id => Number.parseInt(id, 10)),
         switchMap(id => {
           return this.characterService.getCharacterById(id);
         })

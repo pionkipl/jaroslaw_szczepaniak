@@ -1,9 +1,9 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[focusFirstInvalidField]'
+  selector: '[slFocusFirstInvalidField]'
 })
-export class FirstInvalidFieldDirecvite {
+export class FirstInvalidFieldDirective {
   constructor(private elementRef: ElementRef) {}
 
   @HostListener('submit')
