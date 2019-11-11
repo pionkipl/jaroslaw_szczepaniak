@@ -5,14 +5,10 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
-import {
-  Router,
-  ActivatedRouteSnapshot,
-  ActivatedRoute
-} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { CharacterService } from 'src/app/character/service/character.service';
-import { switchMap, map, filter } from 'rxjs/operators';
+import { switchMap, map, filter, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'sl-add-character',
@@ -24,6 +20,7 @@ export class AddCharacterComponent implements OnInit {
   submitted = false;
   isEditMode = false;
   editedId = 0;
+  isCommunicationWithServerInProgress = false;
 
   species;
 
@@ -104,6 +101,7 @@ export class AddCharacterComponent implements OnInit {
   }
 
   addCharacter() {
+    this.isCommunicationWithServerInProgress = true;
     this.characterService
       .createCharacter(this.addCharacterForm.getRawValue())
       .subscribe(() => {
@@ -112,6 +110,7 @@ export class AddCharacterComponent implements OnInit {
   }
 
   editCharacter() {
+    this.isCommunicationWithServerInProgress = true;
     this.characterService
       .updateCharacter(this.editedId, this.addCharacterForm.getRawValue())
       .subscribe(() => {

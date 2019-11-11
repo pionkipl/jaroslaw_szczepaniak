@@ -44,6 +44,9 @@ export class ListViewComponent implements OnInit {
         })
       )
       .subscribe(charactersData => {
+        if (charactersData.length < 1) {
+          window.alert('No Results Found.');
+        }
         this.charactersData$.next(charactersData);
       });
   }

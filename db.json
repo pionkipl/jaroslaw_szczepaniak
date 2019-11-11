@@ -152,18 +152,165 @@
       "id": 21
     },
     {
-      "id": 22,
-      "name": "adawda",
-      "species": "Geonosian",
-      "gender": "female",
-      "homeworld": "adawda"
-    },
-    {
       "id": 23,
       "name": "fefsefsefs",
       "species": "Dug",
       "gender": "female",
       "homeworld": "sefsef"
+    },
+    {
+      "name": "Jarek",
+      "species": "Aleena",
+      "gender": "male",
+      "homeworld": "dferer",
+      "id": 24
+    },
+    {
+      "name": "asdasd",
+      "species": "Droid",
+      "gender": "female",
+      "homeworld": "asdasda",
+      "id": 25
+    },
+    {
+      "name": "dawdawdaw",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "awdaw",
+      "id": 26
+    },
+    {
+      "name": "dawdawdaw",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "awdaw",
+      "id": 27
+    },
+    {
+      "name": "dawdawdaw",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "awdaw",
+      "id": 28
+    },
+    {
+      "name": "dawdawdaw",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "awdaw",
+      "id": 29
+    },
+    {
+      "name": "dawdawdaw",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "awdaw",
+      "id": 30
+    },
+    {
+      "name": "dawdawdaw",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "awdaw",
+      "id": 31
+    },
+    {
+      "name": "dawdawdaw",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "awdaw",
+      "id": 32
+    },
+    {
+      "name": "dawdawdaw",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "awdaw",
+      "id": 33
+    },
+    {
+      "name": "Jarek",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "",
+      "id": 34
+    },
+    {
+      "name": "dasdd",
+      "species": "Ewok",
+      "gender": "female",
+      "homeworld": "",
+      "id": 35
+    },
+    {
+      "name": "Jarek",
+      "species": "Dug",
+      "gender": "male",
+      "homeworld": "",
+      "id": 36
+    },
+    {
+      "name": "awdawd",
+      "species": "Geonosian",
+      "gender": "male",
+      "homeworld": "awda",
+      "id": 37
+    },
+    {
+      "name": "awdawd",
+      "species": "Geonosian",
+      "gender": "male",
+      "homeworld": "awda",
+      "id": 38
+    },
+    {
+      "name": "dasdd",
+      "species": "Ewok",
+      "gender": "female",
+      "homeworld": "",
+      "id": 39
+    },
+    {
+      "name": "casdas",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "awdaw",
+      "id": 40
+    },
+    {
+      "name": "afawa",
+      "species": "Hutt",
+      "gender": "female",
+      "homeworld": "wad",
+      "id": 41
+    },
+    {
+      "name": "se",
+      "species": "Clawdite",
+      "gender": "female",
+      "homeworld": "",
+      "id": 42
+    },
+    {
+      "name": "dasdd",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "",
+      "id": 43
+    },
+    {
+      "name": "kjkhkjh",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "awdawa",
+      "id": 44
+    },
+    {
+      "name": "dasdd",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "",
+      "id": 45
     }
   ]
 }
