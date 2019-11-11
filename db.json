@@ -40,7 +40,7 @@
   ],
   "characters": [
     {
-      "name": "Obi-Wan Kenobi KUTACZ",
+      "name": "Obi-Wan Kenobi ELO",
       "species": "Human",
       "gender": "male",
       "homeworld": "Stewjon",
@@ -68,13 +68,6 @@
       "homeworld": "Corellia"
     },
     {
-      "id": 11,
-      "name": "Sheev Palpatine",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": "Naboo"
-    },
-    {
       "id": 12,
       "name": "Boba Fett",
       "species": "Human",
@@ -82,11 +75,11 @@
       "homeworld": "Kamino"
     },
     {
-      "id": 13,
-      "name": "Lando Calrissian",
+      "name": "Lando Calrissianw",
       "species": "Human",
       "gender": "male",
-      "homeworld": "Socorro"
+      "homeworld": "Socorro",
+      "id": 13
     },
     {
       "id": 14,
@@ -304,6 +297,20 @@
       "gender": "female",
       "homeworld": "ttt",
       "id": 46
+    },
+    {
+      "name": "asdlk we ewew",
+      "species": "Aleena",
+      "gender": "female",
+      "homeworld": "wewe",
+      "id": 47
+    },
+    {
+      "name": "KRÓL VAGIN",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "FEMINE",
+      "id": 49
     }
   ]
 }

@@ -4,8 +4,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
-import { CharacterModel } from 'src/app/character/model/character-model.interface';
-
 @Component({
   selector: 'sl-search',
   templateUrl: './search.component.html',

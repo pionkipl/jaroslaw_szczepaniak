@@ -7,8 +7,9 @@ import {
 } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { switchMap, map, filter } from 'rxjs/operators';
+
 import { CharacterService } from 'src/app/character/service/character.service';
-import { switchMap, map, filter, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'sl-add-character',
@@ -22,7 +23,7 @@ export class AddCharacterComponent implements OnInit {
   editedId = 0;
   isCommunicationWithServerInProgress = false;
 
-  species;
+  species: Array<string>;
 
   constructor(
     private fb: FormBuilder,
@@ -100,12 +101,16 @@ export class AddCharacterComponent implements OnInit {
     this.addCharacterForm.reset();
   }
 
+  navigateToCharacterList() {
+    this.router.navigate(['/characters']);
+  }
+
   addCharacter() {
     this.isCommunicationWithServerInProgress = true;
     this.characterService
       .createCharacter(this.addCharacterForm.getRawValue())
       .subscribe(() => {
-        this.router.navigate(['/characters']);
+        this.navigateToCharacterList();
       });
   }
 
@@ -114,7 +119,7 @@ export class AddCharacterComponent implements OnInit {
     this.characterService
       .updateCharacter(this.editedId, this.addCharacterForm.getRawValue())
       .subscribe(() => {
-        this.router.navigate(['/characters']);
+        this.navigateToCharacterList();
       });
   }
 }

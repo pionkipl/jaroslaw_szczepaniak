@@ -58,6 +58,6 @@ export class CharacterService {
   }
 
   getSpecies() {
-    return this.http.get(`${environment.endpoint}/species`);
+    return this.http.get<Array<string>>(`${environment.endpoint}/species`);
   }
 }
