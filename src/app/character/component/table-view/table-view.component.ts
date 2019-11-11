@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -11,7 +11,7 @@ import { ButtonAction } from 'src/app/shared/enum/button-action.enum';
   templateUrl: './table-view.component.html',
   styleUrls: ['./table-view.component.scss']
 })
-export class TableViewComponent implements OnInit {
+export class TableViewComponent {
   @Input()
   characters$: Observable<Array<CharacterModel>>;
 
@@ -24,8 +24,6 @@ export class TableViewComponent implements OnInit {
   buttonAction = ButtonAction;
 
   constructor() {}
-
-  ngOnInit() {}
 
   deleteCharacterById(id: number) {
     this.deleteCharacter.emit(id);

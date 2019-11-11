@@ -40,7 +40,7 @@
   ],
   "characters": [
     {
-      "name": "Obi-Wan Kenobi NAIROBI",
+      "name": "Obi-Wan Kenobi KUTACZ",
       "species": "Human",
       "gender": "male",
       "homeworld": "Stewjon",
@@ -66,13 +66,6 @@
       "species": "Human",
       "gender": "male",
       "homeworld": "Corellia"
-    },
-    {
-      "id": 10,
-      "name": "Yoda",
-      "species": "Yoda's species",
-      "gender": "male",
-      "homeworld": ""
     },
     {
       "id": 11,
@@ -292,13 +285,6 @@
       "id": 42
     },
     {
-      "name": "dasdd",
-      "species": "Dug",
-      "gender": "female",
-      "homeworld": "",
-      "id": 43
-    },
-    {
       "name": "kjkhkjh",
       "species": "Dug",
       "gender": "female",
@@ -311,6 +297,13 @@
       "gender": "female",
       "homeworld": "",
       "id": 45
+    },
+    {
+      "name": "tttt",
+      "species": "Gungan",
+      "gender": "female",
+      "homeworld": "ttt",
+      "id": 46
     }
   ]
 }

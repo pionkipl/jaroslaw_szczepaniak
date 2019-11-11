@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { CharacterModel } from '../model/character-model.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
   constructor(private http: HttpClient) {}
-  url = 'http://localhost:3000';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -17,43 +17,47 @@ export class CharacterService {
   };
 
   getCharacters() {
-    return this.http.get<Array<CharacterModel>>(`${this.url}/characters`);
+    return this.http.get<Array<CharacterModel>>(
+      `${environment.endpoint}/characters`
+    );
   }
 
   getCharacterById(id: number) {
-    return this.http.get<CharacterModel>(`${this.url}/characters/${id}`);
+    return this.http.get<CharacterModel>(
+      `${environment.endpoint}/characters/${id}`
+    );
   }
 
   createCharacter(character) {
     return this.http.post<CharacterModel>(
-      `${this.url}/characters`,
-      JSON.stringify(character),
+      `${environment.endpoint}/characters`,
+      character,
       this.httpOptions
     );
   }
 
   updateCharacter(id, character) {
     return this.http.put<CharacterModel>(
-      `${this.url}/characters/${id}`,
-      JSON.stringify(character),
+      `${environment.endpoint}/characters/${id}`,
+      character,
       this.httpOptions
     );
   }
 
   deleteCharacter(id: number) {
     return this.http.delete<CharacterModel>(
-      `${this.url}/characters/${id}`,
+      `${environment.endpoint}/characters/${id}`,
       this.httpOptions
     );
   }
 
   searchCharacterByQuery(characterSearchQuery: string) {
     return this.http.get<Array<CharacterModel>>(
-      `${this.url}/characters/?q=${characterSearchQuery}`
+      `${environment.endpoint}/characters/?q=${characterSearchQuery}`
     );
   }
 
   getSpecies() {
-    return this.http.get(`${this.url}/species`);
+    return this.http.get(`${environment.endpoint}/species`);
   }
 }
