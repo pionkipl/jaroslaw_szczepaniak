@@ -40,41 +40,6 @@
   ],
   "characters": [
     {
-      "id": 1,
-      "name": "Luke Skywalker",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": "Tatooine"
-    },
-    {
-      "id": 2,
-      "name": "C-3PO",
-      "species": "Droid",
-      "gender": "n/a",
-      "homeworld": "Tatooine"
-    },
-    {
-      "id": 3,
-      "name": "R2-D2",
-      "species": "Droid",
-      "gender": "n/a",
-      "homeworld": "Naboo"
-    },
-    {
-      "id": 4,
-      "name": "Darth Vader",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": "Tatooine"
-    },
-    {
-      "id": 5,
-      "name": "Leia Organa",
-      "species": "Human",
-      "gender": "female",
-      "homeworld": "Alderaan"
-    },
-    {
       "id": 6,
       "name": "Obi-Wan Kenobi",
       "species": "Human",
@@ -173,11 +138,18 @@
       "homeworld": ""
     },
     {
-      "name": "jarek",
-      "species": "Droid",
+      "name": "dasdd",
+      "species": "Dug",
       "gender": "female",
-      "homeworld": "To ja",
-      "id": 22
+      "homeworld": "wewe",
+      "id": 20
+    },
+    {
+      "name": "ffdfdf",
+      "species": "Gungan",
+      "gender": "female",
+      "homeworld": "ewe",
+      "id": 21
     }
   ]
 }

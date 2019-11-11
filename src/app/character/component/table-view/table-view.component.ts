@@ -1,11 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { CharacterService } from '../../service/character.service';
+import { Observable } from 'rxjs';
 
 import { CharacterModel } from '../../model/character-model.interface';
 
 import { ButtonAction } from 'src/app/shared/enum/button-action.enum';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'sl-table-view',
@@ -14,27 +13,18 @@ import { Observable } from 'rxjs';
 })
 export class TableViewComponent implements OnInit {
   @Input()
-  characters: Array<CharacterModel> = [];
+  characters$: Observable<Array<CharacterModel>>;
+
+  @Output()
+  deleteCharacter = new EventEmitter<number>();
 
   buttonAction = ButtonAction;
 
-  constructor(private characterService: CharacterService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.getCharacters();
-  }
+  ngOnInit() {}
 
-  getCharacters() {
-    return this.characterService.getCharacters().subscribe(characters => {
-      this.characters = characters;
-    });
-  }
-
-  deleteCharacter(id) {
-    if (window.confirm('Are you sure, you want do telete this character?')) {
-      this.characterService.deleteCharacter(id).subscribe(() => {
-        this.getCharacters();
-      });
-    }
+  deleteCharacterById(id: number) {
+    this.deleteCharacter.emit(id);
   }
 }

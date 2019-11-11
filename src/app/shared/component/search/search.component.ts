@@ -1,6 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+
+import { Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+
 import { CharacterModel } from 'src/app/character/model/character-model.interface';
 
 @Component({
@@ -9,6 +12,9 @@ import { CharacterModel } from 'src/app/character/model/character-model.interfac
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  @Input()
+  setSearchQuery$: Observable<string>;
+
   @Output()
   searchQueried = new EventEmitter<string>();
 
@@ -34,5 +40,9 @@ export class SearchComponent implements OnInit {
       .subscribe(searchQuery => {
         this.searchQueried.emit(searchQuery);
       });
+
+    this.setSearchQuery$.subscribe(newSearchQuery => {
+      this.searchForm.get('searchQuery').setValue(newSearchQuery);
+    });
   }
 }

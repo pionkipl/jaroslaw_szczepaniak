@@ -6,6 +6,7 @@ import {
   Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { CharacterService } from 'src/app/character/service/character.service';
 
 @Component({
@@ -19,13 +20,6 @@ export class AddCharacterComponent implements OnInit {
 
   species;
 
-  characterDetails = {
-    name: '',
-    species: '',
-    gender: '',
-    homeworld: ''
-  };
-
   constructor(
     private fb: FormBuilder,
     private characterService: CharacterService,
@@ -37,13 +31,10 @@ export class AddCharacterComponent implements OnInit {
       name: ['', Validators.required],
       species: ['', Validators.required],
       gender: ['', Validators.required],
-      homeworld: [''],
-      asterix: [null, Validators.required]
+      homeworld: ['']
     });
 
-    this.characterService.getSpecies().subscribe(speciesData => {
-      this.species = speciesData;
-    });
+    this.getSpecies();
   }
 
   get getFormControl() {
@@ -60,23 +51,20 @@ export class AddCharacterComponent implements OnInit {
     return validator && validator.required;
   }
 
+  getSpecies() {
+    this.characterService.getSpecies().subscribe(speciesData => {
+      this.species = speciesData;
+    });
+  }
+
   onSubmit() {
     this.submitted = true;
-    console.log(this.submitted);
 
     if (this.addCharacterForm.invalid) {
       return;
     }
 
-    this.characterDetails = {
-      name: this.getFormControl.name.value,
-      species: this.getFormControl.species.value,
-      gender: this.getFormControl.gender.value,
-      homeworld: this.getFormControl.homeworld.value
-    };
-
     this.addCharacter();
-    this.addCharacterForm.reset();
   }
 
   onReset() {
@@ -86,10 +74,10 @@ export class AddCharacterComponent implements OnInit {
 
   addCharacter() {
     this.characterService
-      .createCharacter(this.characterDetails)
+      .createCharacter(this.addCharacterForm.getRawValue())
       .subscribe(data => {
         console.log(data);
-        this.router.navigate(['/listview']);
+        this.router.navigate(['/characterlist']);
       });
   }
 }

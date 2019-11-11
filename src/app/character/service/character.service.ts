@@ -36,7 +36,7 @@ export class CharacterService {
     );
   }
 
-  deleteCharacter(id) {
+  deleteCharacter(id: number) {
     return this.http.delete<CharacterModel>(
       `${this.url}/characters/${id}`,
       this.httpOptions

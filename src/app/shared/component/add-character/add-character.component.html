@@ -1,10 +1,6 @@
 <h2>Add New Character</h2>
 
-<form
-  focusFirstInvalidField
-  [formGroup]="addCharacterForm"
-  (ngSubmit)="onSubmit()"
->
+<form focusFirstInvalidField [formGroup]="addCharacterForm">
   <div class="form-row">
     <div class="form-group col">
       <label for="name"
@@ -67,13 +63,11 @@
     </div>
   </div>
 
-  <h3>Gender</h3>
+  <h3>Gender<span *ngIf="checkIsControlRequired('gender')">*</span></h3>
 
   <div class="form-row">
     <div class="form-group col">
-      <label for="male"
-        >Male<span *ngIf="checkIsControlRequired('gender')">*</span></label
-      >
+      <label for="male">Male</label>
       <input
         class="form-control"
         type="radio"
@@ -137,8 +131,6 @@
   </div>
 
   <div class="text-center">
-    <!-- <sl-button [text]="'Add Character'" type="add"></sl-button>
-    <sl-button (click)="onReset()" [text]="'Reset'" type="remove"></sl-button> -->
     <button (click)="onSubmit()" class="btn btn-primary">Add</button>
   </div>
 </form>
