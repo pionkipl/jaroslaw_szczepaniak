@@ -18,6 +18,9 @@ export class TableViewComponent implements OnInit {
   @Output()
   deleteCharacter = new EventEmitter<number>();
 
+  @Output()
+  editCharacter = new EventEmitter<number>();
+
   buttonAction = ButtonAction;
 
   constructor() {}
@@ -26,5 +29,9 @@ export class TableViewComponent implements OnInit {
 
   deleteCharacterById(id: number) {
     this.deleteCharacter.emit(id);
+  }
+
+  editCharacterById(id: number) {
+    this.editCharacter.emit(id);
   }
 }

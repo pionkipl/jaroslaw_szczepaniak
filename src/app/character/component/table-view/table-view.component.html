@@ -18,7 +18,11 @@
       <td>{{ character.homeworld }}</td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="Actions">
-          <sl-button-small [text]="'Edit'" [type]="buttonAction.edit">
+          <sl-button-small
+            [text]="'Edit'"
+            [type]="buttonAction.edit"
+            (click)="editCharacterById(character.id)"
+          >
           </sl-button-small>
           <sl-button-small
             [text]="'Remove'"

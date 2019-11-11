@@ -131,6 +131,8 @@
   </div>
 
   <div class="text-center">
-    <button (click)="onSubmit()" class="btn btn-primary">Add</button>
+    <button (click)="onSubmit()" class="btn btn-primary">
+      {{ isEditMode ? 'Save changes' : 'Add' }}
+    </button>
   </div>
 </form>

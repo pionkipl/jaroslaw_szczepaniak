@@ -5,9 +5,14 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import {
+  Router,
+  ActivatedRouteSnapshot,
+  ActivatedRoute
+} from '@angular/router';
 
 import { CharacterService } from 'src/app/character/service/character.service';
+import { switchMap, map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'sl-add-character',
@@ -17,28 +22,50 @@ import { CharacterService } from 'src/app/character/service/character.service';
 export class AddCharacterComponent implements OnInit {
   addCharacterForm: FormGroup;
   submitted = false;
+  isEditMode = false;
+  editedId = 0;
 
   species;
 
   constructor(
     private fb: FormBuilder,
     private characterService: CharacterService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.initForm();
+
+    this.getSpecies();
+
+    this.activatedRoute.paramMap
+      .pipe(
+        map(data => data.get('id')),
+        filter(id => !!id),
+        map(id => Number.parseInt(id)),
+        switchMap(id => {
+          return this.characterService.getCharacterById(id);
+        })
+      )
+      .subscribe(userResponse => {
+        this.isEditMode = true;
+        this.editedId = userResponse.id;
+        this.addCharacterForm.patchValue(userResponse);
+      });
+  }
+
+  get getFormControl() {
+    return this.addCharacterForm.controls;
+  }
+
+  private initForm() {
     this.addCharacterForm = this.fb.group({
       name: ['', Validators.required],
       species: ['', Validators.required],
       gender: ['', Validators.required],
       homeworld: ['']
     });
-
-    this.getSpecies();
-  }
-
-  get getFormControl() {
-    return this.addCharacterForm.controls;
   }
 
   checkIsControlRequired(controlName: string) {
@@ -64,7 +91,11 @@ export class AddCharacterComponent implements OnInit {
       return;
     }
 
-    this.addCharacter();
+    if (this.isEditMode) {
+      this.editCharacter();
+    } else {
+      this.addCharacter();
+    }
   }
 
   onReset() {
@@ -75,9 +106,16 @@ export class AddCharacterComponent implements OnInit {
   addCharacter() {
     this.characterService
       .createCharacter(this.addCharacterForm.getRawValue())
-      .subscribe(data => {
-        console.log(data);
-        this.router.navigate(['/characterlist']);
+      .subscribe(() => {
+        this.router.navigate(['/characters']);
+      });
+  }
+
+  editCharacter() {
+    this.characterService
+      .updateCharacter(this.editedId, this.addCharacterForm.getRawValue())
+      .subscribe(() => {
+        this.router.navigate(['/characters']);
       });
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { BehaviorSubject } from 'rxjs';
 import { switchMap, filter } from 'rxjs/operators';
@@ -21,7 +22,10 @@ export class ListViewComponent implements OnInit {
 
   private newSearchText$: BehaviorSubject<string>;
 
-  constructor(public characterService: CharacterService) {}
+  constructor(
+    public characterService: CharacterService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.initProperties();
@@ -54,5 +58,9 @@ export class ListViewComponent implements OnInit {
         this.setSearchQuery$.next('');
       });
     }
+  }
+
+  editCharacterById(id: number) {
+    this.router.navigate([`/characters/${id}`]);
   }
 }

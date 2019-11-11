@@ -20,6 +20,10 @@ export class CharacterService {
     return this.http.get<Array<CharacterModel>>(`${this.url}/characters`);
   }
 
+  getCharacterById(id: number) {
+    return this.http.get<CharacterModel>(`${this.url}/characters/${id}`);
+  }
+
   createCharacter(character) {
     return this.http.post<CharacterModel>(
       `${this.url}/characters`,

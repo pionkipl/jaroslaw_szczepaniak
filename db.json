@@ -40,18 +40,18 @@
   ],
   "characters": [
     {
-      "id": 6,
-      "name": "Obi-Wan Kenobi",
+      "name": "Obi-Wan Kenobi NAIROBI",
       "species": "Human",
       "gender": "male",
-      "homeworld": "Stewjon"
+      "homeworld": "Stewjon",
+      "id": 6
     },
     {
-      "id": 7,
-      "name": "Anakin Skywalker",
+      "name": "Anakin Skywalker Nai",
       "species": "Human",
       "gender": "male",
-      "homeworld": "Tatooine"
+      "homeworld": "Tatooine",
+      "id": 7
     },
     {
       "id": 8,
@@ -110,11 +110,11 @@
       "homeworld": ""
     },
     {
-      "id": 16,
-      "name": "Rey",
+      "name": "Reyss",
       "species": "Human",
       "gender": "female",
-      "homeworld": ""
+      "homeworld": "",
+      "id": 16
     },
     {
       "id": 17,
@@ -150,6 +150,20 @@
       "gender": "female",
       "homeworld": "ewe",
       "id": 21
+    },
+    {
+      "id": 22,
+      "name": "adawda",
+      "species": "Geonosian",
+      "gender": "female",
+      "homeworld": "adawda"
+    },
+    {
+      "id": 23,
+      "name": "fefsefsefs",
+      "species": "Dug",
+      "gender": "female",
+      "homeworld": "sefsef"
     }
   ]
 }
