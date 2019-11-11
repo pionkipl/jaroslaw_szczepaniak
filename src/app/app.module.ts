@@ -6,11 +6,17 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ListViewComponent } from './list-view/list-view.component';
+import { CharacterModule } from './character/character.module';
 
 @NgModule({
-  declarations: [AppComponent, ListViewComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, HttpClientModule],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    SharedModule,
+    CharacterModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

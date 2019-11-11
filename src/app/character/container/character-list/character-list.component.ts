@@ -4,18 +4,18 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { switchMap, filter } from 'rxjs/operators';
 
-import { CharacterModel } from '../character/model/character-model.interface';
+import { CharacterModel } from '../../model/character-model.interface';
 
-import { CharacterService } from '../character/service/character.service';
+import { CharacterService } from '../../service/character.service';
 
-import { ButtonType } from '../shared/enum/button-type.enum';
+import { ButtonType } from '../../../shared/enum/button-type.enum';
 
 @Component({
-  selector: 'sl-list-view',
-  templateUrl: './list-view.component.html',
-  styleUrls: ['./list-view.component.scss']
+  selector: 'sl-character-list',
+  templateUrl: './character-list.component.html',
+  styleUrls: ['./character-list.component.scss']
 })
-export class ListViewComponent implements OnInit {
+export class CharacterListComponent implements OnInit {
   charactersData$: BehaviorSubject<Array<CharacterModel>>;
   setSearchQuery$: BehaviorSubject<string>;
   buttonType = ButtonType;
